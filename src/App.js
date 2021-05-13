@@ -1,10 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import Profile from "./Profile";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
-//import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 function App() {
+
+  const {isAuthenticated, isLoading} = useAuth0();
+
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -20,8 +27,15 @@ function App() {
         >
           Learn React
         </a>
-        <LoginButton/>
-        <LogoutButton/>
+        
+        {!isLoading && isAuthenticated ? 
+          <>
+            <LogoutButton/>
+            <Profile/>
+          </>
+         : <><LoginButton/></>
+        }
+        
       </header>
     </div>
   );
