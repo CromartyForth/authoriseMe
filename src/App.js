@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 //import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           Learn React
         </a>
         <LoginButton/>
+        <LogoutButton/>
       </header>
     </div>
   );
